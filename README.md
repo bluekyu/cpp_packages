@@ -22,5 +22,3 @@ C++ Packages for Build Automation
 [yaml-cpp-win-debug]: https://ci.appveyor.com/api/projects/bluekyu/cpp-packages/artifacts/install/yaml-cpp.7z?branch=master&job=Configuration%3A+Debug "Download yaml-cpp build (Debug)"
 [yaml-cpp-win-reldeb]: https://ci.appveyor.com/api/projects/bluekyu/cpp-packages/artifacts/install/yaml-cpp.7z?branch=master&job=Configuration%3A+RelWithDebInfo "Download yaml-cpp build (RelWithDebInfo)"
 [yaml-cpp-win-release]: https://ci.appveyor.com/api/projects/bluekyu/cpp-packages/artifacts/install/yaml-cpp.7z?branch=master&job=Configuration%3A+Release "Download yaml-cpp build (Release)"
-
-**Note**: These builds are built with *patched* [Panda3D](https://github.com/bluekyu/panda3d).
