@@ -5,7 +5,10 @@ ExternalProject_Add(spdlog
     GIT_PROGRESS 1
 
     INSTALL_DIR "${cpp_packages_install_dir}/spdlog"
-    CMAKE_CACHE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
+    CMAKE_CACHE_ARGS
+        -DBUILD_TESTING:BOOL=OFF
+        -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
+        -DSPDLOG_BUILD_TESTING:BOOL=OFF
 )
 
 ExternalProject_Add_Step(spdlog archive

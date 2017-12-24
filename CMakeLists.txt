@@ -6,6 +6,7 @@ project(cpp_packages)
 
 set(library_names
     "spdlog"
+    "yaml-cpp"
 )
 
 include(ExternalProject)
