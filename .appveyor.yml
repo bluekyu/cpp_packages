@@ -1,0 +1,76 @@
+#---------------------------------#
+#      general configuration      #
+#---------------------------------#
+
+# version format
+version: '{branch}-{build}'
+
+#---------------------------------#
+#    environment configuration    #
+#---------------------------------#
+
+# Build worker image (VM template)
+image:
+- Visual Studio 2017
+
+# set clone depth
+clone_depth: 1
+
+# clone directory
+clone_folder: c:\projects\cpp_packages
+
+# scripts that are called at very beginning, before repo cloning
+init:
+- git --version
+- python --version
+- cmake --version
+
+# environment variables
+environment:
+    CMAKE_GENERATOR: Visual Studio 15 2017 Win64
+    PATH: C:\Python36-x64;%PATH%
+
+# this is how to allow failing jobs in the matrix
+matrix:
+    fast_finish: true   # set this flag to immediately finish build once one of the jobs fails.
+
+#---------------------------------#
+#       build configuration       #
+#---------------------------------#
+
+# build platform, i.e. x86, x64, Any CPU. This setting is optional.
+platform: x64
+
+# build Configuration, i.e. Debug, Release, etc.
+configuration:
+- Debug
+- Release
+
+build:
+    parallel: true                  # enable MSBuild parallel builds
+
+# to run your custom scripts instead of automatic MSBuild
+build_script:
+- ps: (mkdir _build) -and (pushd _build)
+- cmake -G "%CMAKE_GENERATOR%" -Wno-dev ..
+- cmake --build . --config %CONFIGURATION% --target all_build
+- ps: popd
+
+#---------------------------------#
+#       tests configuration       #
+#---------------------------------#
+
+test: off
+
+#---------------------------------#
+#      artifacts configuration    #
+#---------------------------------#
+
+artifacts:
+- path: install/*.7z
+
+#---------------------------------#
+#     deployment configuration    #
+#---------------------------------#
+
+deploy: off
