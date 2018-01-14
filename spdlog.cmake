@@ -1,7 +1,7 @@
 # https://github.com/gabime/spdlog
 ExternalProject_Add(spdlog
     GIT_REPOSITORY https://github.com/gabime/spdlog
-    GIT_TAG v0.16.2
+    GIT_TAG v0.16.3
     GIT_PROGRESS 1
 
     INSTALL_DIR "${cpp_packages_install_dir}/spdlog"
