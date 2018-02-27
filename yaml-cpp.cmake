@@ -1,7 +1,7 @@
 # https://github.com/jbeder/yaml-cpp.git
 ExternalProject_Add(yaml_cpp
     GIT_REPOSITORY https://github.com/jbeder/yaml-cpp.git
-    GIT_TAG 86ae3a5a
+    GIT_TAG yaml-cpp-0.6.1
     GIT_PROGRESS 1
 
     INSTALL_DIR "${cpp_packages_install_dir}/yaml-cpp"
