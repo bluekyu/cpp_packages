@@ -25,10 +25,15 @@ init:
 - git --version
 - python --version
 - cmake --version
+- ps: >-
+    if ($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2015") {
+        $env:CMAKE_GENERATOR="Visual Studio 14 2015 Win64"
+    } else {
+        $env:CMAKE_GENERATOR="Visual Studio 15 2017 Win64"
+    }
 
 # environment variables
 environment:
-    CMAKE_GENERATOR: Visual Studio 15 2017 Win64
     PATH: C:\Python36-x64;%PATH%
 
 # this is how to allow failing jobs in the matrix
