@@ -2,7 +2,7 @@
 ExternalProject_Add(assimp
     GIT_REPOSITORY https://github.com/assimp/assimp.git
     GIT_TAG v4.1.0
-    GIT_PROGRESS 1
+    GIT_PROGRESS ${cpp_packages_show_git_progress}
 
     INSTALL_DIR "${cpp_packages_install_dir}/assimp"
     CMAKE_CACHE_ARGS

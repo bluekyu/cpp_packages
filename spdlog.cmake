@@ -2,7 +2,7 @@
 ExternalProject_Add(spdlog
     GIT_REPOSITORY https://github.com/gabime/spdlog
     GIT_TAG v0.16.3
-    GIT_PROGRESS 1
+    GIT_PROGRESS ${cpp_packages_show_git_progress}
 
     INSTALL_DIR "${cpp_packages_install_dir}/spdlog"
     CMAKE_CACHE_ARGS

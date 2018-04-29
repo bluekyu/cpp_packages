@@ -59,7 +59,9 @@ build:
 # to run your custom scripts instead of automatic MSBuild
 build_script:
 - ps: (mkdir _build) -and (pushd _build)
-- cmake -G "%CMAKE_GENERATOR%" -Wno-dev ..
+- cmd: >-
+    cmake -G "%CMAKE_GENERATOR%" -Wno-dev ..
+    -Dcpp_packages_show_git_progress:BOOL=OFF
 - cmake --build . --config %CONFIGURATION% --target all_build
 - ps: popd
 
